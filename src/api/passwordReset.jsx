@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://password-reset-3inm.onrender.com", // Backend URL
-  timeout: 5000, // Timeout of 5 seconds
+  baseURL: import.meta.env.VITE_REACT_APP_API_URL, // For Vite
+  timeout: 5000,
 });
 
 export const requestPasswordReset = async (email) => {
