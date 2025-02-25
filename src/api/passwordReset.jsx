@@ -15,11 +15,14 @@ export const requestPasswordReset = async (email) => {
 };
 
 // Function to actually reset the password
-export const resetPassword = async (token, password) => {
+export const resetPassword = async (token, newPassword) => {
   try {
     const response = await axios.post(
       `https://password-reset-3inm.onrender.com/reset-password/${token}`,
-      { password }
+      { newPassword },
+      {
+        headers: { "Content-Type": "application/json" },
+      }
     );
     return response.data;
   } catch (error) {
