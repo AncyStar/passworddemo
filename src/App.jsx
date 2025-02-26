@@ -15,7 +15,7 @@ function App() {
       <div className="container mt-5">
         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4 shadow-sm rounded">
           <div className="container-fluid">
-            <a className="navbar-brand " href="/">
+            <a className="navbar-brand" href="/">
               Password Reset App
             </a>
             <div className="collapse navbar-collapse">
