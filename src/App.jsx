@@ -8,6 +8,8 @@ import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import Login from "./components/Login";
 import Signup from "./components/SingnUp";
+import Dashboard from "./Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -48,6 +50,14 @@ function App() {
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="*"
             element={<h2 className="text-center">404 - Page Not Found</h2>}
