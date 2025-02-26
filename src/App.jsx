@@ -43,7 +43,7 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<Navigate to="/forgot-password" />} />
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/login" element={<Login />} />
