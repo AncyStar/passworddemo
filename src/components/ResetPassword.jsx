@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const ResetPassword = () => {
   const { token } = useParams();
   const navigate = useNavigate();
-  const [password, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -16,14 +16,16 @@ const ResetPassword = () => {
     setLoading(true);
     setMessage("");
 
-    if (password.length < 6) {
+    if (newPassword.length < 6) {
       setMessage("Password must be at least 6 characters long.");
       setLoading(false);
       return;
     }
 
     try {
-      await resetPassword(token, password);
+      console.log("Sending token:", token);
+      console.log("Sending newPassword:", newPassword);
+      await resetPassword(token, newPassword);
       setMessage("Password reset successfully!");
       setSuccess(true);
       setTimeout(() => navigate("/login"), 3000); // Redirect after 3 seconds
@@ -54,8 +56,8 @@ const ResetPassword = () => {
                 type="password"
                 className="form-control"
                 placeholder="Enter new password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
                 required
               />
             </div>
