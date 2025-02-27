@@ -19,7 +19,7 @@ export const resetPassword = async (token, newPassword) => {
   try {
     const response = await axios.post(
       `https://password-reset-3inm.onrender.com/reset-password/${token}`,
-      { newPassword },
+      { token, newPassword },
       {
         headers: { "Content-Type": "application/json" },
       }
