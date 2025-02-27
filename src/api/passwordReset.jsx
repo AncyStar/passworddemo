@@ -1,12 +1,14 @@
 import axios from "axios";
 
+// Use API base URL from .env
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 // Function to request a password reset
 export const requestPasswordReset = async (email) => {
   try {
-    const response = await axios.post(
-      "https://password-reset-3inm.onrender.com/forgot-password",
-      { email }
-    );
+    const response = await axios.post(`${API_BASE_URL}/forgot-password`, {
+      email,
+    });
     return response.data;
   } catch (error) {
     console.error("Error requesting password reset:", error);
@@ -14,15 +16,13 @@ export const requestPasswordReset = async (email) => {
   }
 };
 
-// Function to actually reset the password
+// Function to reset the password
 export const resetPassword = async (token, newPassword) => {
   try {
     const response = await axios.post(
-      `https://password-reset-3inm.onrender.com/reset-password/${token}`,
-      { token, newPassword },
-      {
-        headers: { "Content-Type": "application/json" },
-      }
+      `${API_BASE_URL}/reset-password`, // Removed token from URL
+      { token, newPassword }, // Send token in the request body
+      { headers: { "Content-Type": "application/json" } }
     );
     return response.data;
   } catch (error) {
