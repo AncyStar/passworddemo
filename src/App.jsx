@@ -19,16 +19,9 @@ function App() {
       <div className="container mt-5">
         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4 shadow-sm rounded">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="/">
-              Password Reset App
-            </Link>
+            <Link className="navbar-brand">Password Reset App</Link>
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/forgot-password">
-                    Forgot Password
-                  </Link>
-                </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/signup">
                     Signup
@@ -37,6 +30,11 @@ function App() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/login">
                     Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/forgot-password">
+                    Forgot Password
                   </Link>
                 </li>
                 <li className="nav-item">
